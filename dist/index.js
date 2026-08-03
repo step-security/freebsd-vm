@@ -96248,6 +96248,36 @@ async function downloadFile(url, dest, retries = 4) {
   throw lastErr;
 }
 
+// Fetch the SHA-256 digest for anyvm.py from GitHub's releases API for a given
+// version. The `digest` field (`sha256:<hex>`) is stored by GitHub at upload
+// time, independently of the file download path, so it acts as a server-side
+// checksum we can verify against without shipping per-version hashes here.
+// Returns the hex SHA-256 digest for anyvm.py from GitHub's releases API, or
+// null if it cannot be obtained (API failure, asset absent, no digest field).
+// Callers must treat null as "skip verification" and log their own warning.
+async function fetchAnyvmAssetDigest(version) {
+  const apiUrl = `https://api.github.com/repos/anyvm-org/anyvm/releases/tags/v${version}`;
+  let response;
+  try {
+    response = await lib_axios.get(apiUrl, {
+      headers: { 'User-Agent': 'stepsecurity-freebsd-vm-action' },
+    });
+  } catch (err) {
+    warning(`Could not fetch anyvm release metadata for v${version}: ${err.message}`);
+    return null;
+  }
+  const asset = response.data.assets.find(a => a.name === 'anyvm.py');
+  if (!asset) {
+    warning(`anyvm.py not found in GitHub release assets for v${version}, skipping integrity check`);
+    return null;
+  }
+  if (!asset.digest || !asset.digest.startsWith('sha256:')) {
+    warning(`GitHub release asset anyvm.py@v${version} has no sha256 digest field, skipping integrity check`);
+    return null;
+  }
+  return asset.digest.slice('sha256:'.length);
+}
+
 // Run `ssh ... sh` once, piping `input` to its stdin. Returns the exit code.
 // If timeoutMs > 0 and the ssh process has not exited by then, it is killed
 // (SIGTERM, then SIGKILL after a short grace) and the promise rejects with a
@@ -96681,6 +96711,9 @@ async function main() {
     const cacheAfterPrepareInput = getInput("cache-after-prepare").toLowerCase() === 'true';
     const debugOnError = getInput("debug-on-error").toLowerCase() === 'true';
     const vncPassword = getInput("vnc-password");
+    if (vncPassword) {
+      core_setSecret(vncPassword);
+    }
 
     const work = external_path_.join(process.env["HOME"], "work");
     let vmwork = external_path_.join(process.env["HOME"], "work");
@@ -96786,6 +96819,17 @@ async function main() {
         `Could not download anyvm.py for v${anyvmVersion} (${err.message}). ` +
         `Check that the anyvm release v${anyvmVersion} exists and has anyvm.py ` +
         `attached as a release asset.`);
+    }
+    const expectedDigest = await fetchAnyvmAssetDigest(anyvmVersion);
+    if (expectedDigest !== null) {
+      const actualDigest = external_crypto_.createHash('sha256').update(external_fs_.readFileSync(anyvmPath)).digest('hex');
+      if (actualDigest !== expectedDigest) {
+        external_fs_.unlinkSync(anyvmPath);
+        throw new Error(
+          `anyvm.py integrity check failed for v${anyvmVersion}: ` +
+          `expected sha256:${expectedDigest}, got sha256:${actualDigest}`);
+      }
+      info(`anyvm.py integrity verified (sha256: ${actualDigest})`);
     }
     endGroup();
 
