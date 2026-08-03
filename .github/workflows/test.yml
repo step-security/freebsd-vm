@@ -181,13 +181,6 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
-#    - name: Creating Web console
-#      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":["rsync","scp","sshfs","nfs"],"riscv64":["nfs","scp"],"powerpc64":["nfs","scp"],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
-#      uses: vmactions/cf-tunnel@v0
-#      id: tunnel
-#      with:
-#        protocol: http
-#        port: 8000
 
     - name: Test in FreeBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":["rsync","scp","sshfs","nfs"],"riscv64":["nfs","scp"],"powerpc64":["nfs","scp"],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
@@ -700,13 +693,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
-#    - name: Creating Web console
-#      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":["rsync","scp","sshfs","nfs"],"riscv64":["nfs","scp"],"powerpc64":["nfs","scp"],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
-#      uses: vmactions/cf-tunnel@v0
-#      id: tunnel
-#      with:
-#        protocol: http
-#        port: 8000
+
     - name: Test in FreeBSD
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","sshfs","nfs"],"aarch64":["rsync","scp","sshfs","nfs"],"riscv64":["nfs","scp"],"powerpc64":["nfs","scp"],"sparc64":[],"ppc64le":[],"s390x":[],"i386":[],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test

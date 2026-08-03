@@ -96889,7 +96889,7 @@ async function main() {
     if (cacheSupported && !disableCache) {
       // Default under <work>/_actions/_vmcache, NOT os.tmpdir(): the
       // ubuntu-26.04 runner image enforces a disk quota on /tmp smaller than
-      // one extracted qcow2 (EDQUOT, vmactions/freebsd-vm#148). _actions sits
+      // one extracted qcow2 (EDQUOT). _actions sits
       // on the roomy work volume, is already excluded from every push-sync
       // path (rsync/scp/tar all skip the _actions name), and unlike a path
       // under __dirname it does not embed the action ref -- the cache tar
@@ -97186,7 +97186,7 @@ async function main() {
     // With sync rsync/scp the work tree is copied into the VM once at action
     // start and copied back once when this main step ends -- files created by
     // a later custom-shell step would otherwise stay in the VM and never
-    // reach the host (vmactions/freebsd-vm#128). Make every custom-shell step
+    // reach the host. Make every custom-shell step
     // self-syncing: push the work tree before the command and pull it back
     // after. rsync transfers are incremental; scp guests have no rsync in the
     // image, so they reuse the main sync's transports (scp -O push, cpio/tar
