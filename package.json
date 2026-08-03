@@ -1,0 +1,34 @@
+{
+  "name": "vmactions-FreeBSD",
+  "version": "1.5.2",
+  "description": "GitHub actions for FreeBSD",
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/step-security/freebsd-vm.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "FreeBSD"
+  ],
+  "author": "step-security",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/step-security/freebsd-vm/issues"
+  },
+  "homepage": "https://github.com/step-security/freebsd-vm#readme",
+  "scripts": {
+    "build":"ncc build index.js -o dist/"
+  },
+  "dependencies": {
+    "@actions/cache": "^6.0.0",
+    "@actions/core": "^3.0.0",
+    "@actions/exec": "^3.0.0",
+    "axios": "^1.18.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.44.1"
+  }
+}

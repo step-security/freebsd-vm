@@ -1,0 +1,12 @@
+          #pkg install -y curl
+          pwd
+          ls -lah
+          whoami
+          env
+          freebsd-version
+          uname -a
+          #sysctl hw.model
+          sysctl hw.ncpu
+          sysctl hw.physmem
+          sysctl hw.usermem
+
