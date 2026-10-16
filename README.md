@@ -22,18 +22,21 @@ All the supported releases are here:
 
 | Release | x86_64 | aarch64(arm64) | riscv64 | powerpc64 |
 |---------|---------|---------|---------|---------|
-| 15.1 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 15.0 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 14.4 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 14.3 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 14.2 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 14.1 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 14.0 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 13.5 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 13.4 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | —[^rv-stub] | ✅ (nfs,scp) |
-| 13.3 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 13.2 | ✅ (rsync,scp,sshfs,nfs) | ✅ (rsync,scp,sshfs,nfs) | ✅ (nfs,scp) | ✅ (nfs,scp) |
-| 12.4 | ✅ (nfs,scp) | ✅ (nfs,scp) | —[^rv-none] | —[^ppc-panic] |
+| 15.1 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) |
+| 15.0 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) |
+| 14.5 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 14.4 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 14.3 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 14.2 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 14.1 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 14.0 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 13.5 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 13.4 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | —[^rv-stub] | ✅ (nfs,scp,tar) |
+| 13.3 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 13.2 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | ✅ (nfs,scp,tar) |
+| 12.4 | ✅ (rsync,scp,sshfs,nfs,tar) | ✅ (nfs,scp,tar) | —[^rv-none] | —[^ppc-panic] |
+| 11.4 | ✅ (rsync,scp,sshfs,nfs,tar) | — | — | — |
+| 10.4 | ✅ (rsync,scp,sshfs,nfs,tar) | — | — | — |
 
 <!-- arch-label: aarch64 = aarch64(arm64) -->
 <!-- absent: 13.4-riscv64 rv-stub -->
@@ -47,6 +50,18 @@ All the supported releases are here:
 [^rv-stub]: The upstream 13.4 riscv64 `qcow2.xz` on the FreeBSD archive mirror is a broken 32-byte stub rather than a real disk image, so this target cannot be built.
 [^ppc-panic]: FreeBSD 12.x powerpc64 panics in early boot under QEMU pseries -- its PAPR hash-MMU backend hard-requires 16 MiB large pages, which QEMU advertises only when guest RAM is backed by host huge pages. Reworked in FreeBSD 13.0, so 13.2+ powerpc64 build fine; 12.4 (EOL) is dropped.
 
+> **Note:** The 15.x riscv64 images install their packages from
+> [anyvm-org/freebsd-pkg-repo](https://github.com/anyvm-org/freebsd-pkg-repo),
+> because pkg.FreeBSD.org publishes no riscv64 packages at all. That
+> repository is the ports tree built with poudriere under qemu-user and
+> published as signed GitHub release assets; the image carries its public
+> key and one repository block per shard, so `pkg install` works out of the
+> box and `rsync`/`sshfs` sync are available. Packages published into
+> shards created after an image was built are not in that image's copy of
+> the repository list -- refetch `anyvm.conf` from the index release to see
+> them. 13.x and 14.x riscv64 have no such repository (it is built for
+> `FreeBSD:15:riscv64`) and keep the package-less sync methods.
+
 > **Note:** FreeBSD 16.0/16.0-aarch64 confs are kept on disk but not yet
 > opted into the build matrix -- 16.0 is a CURRENT snapshot
 > (`16.0-CURRENT`), not a stable release
@@ -55,6 +70,21 @@ All the supported releases are here:
 > `git show HEAD:.github/data/table.md`), so it is shelved rather than
 > no-build. Delete the two `shelved:` lines above to enable it once 16.0
 > stabilizes.
+
+How the images are built:
+
+Each image is built automatically in the
+[anyvm-org/freebsd-builder](https://github.com/anyvm-org/freebsd-builder)
+repo's GitHub Actions. Most releases start from the official FreeBSD
+VM images (`.qcow2.xz`) published by the FreeBSD project; the builder
+boots the image in QEMU, enables ssh, pre-installs the packages listed
+in the conf, and exports the disk as a compressed qcow2 image.
+Architectures with no official VM image (powerpc64) are instead
+installed unattended from the official FreeBSD release installer ISOs.
+
+Upstream media (see https://www.freebsd.org/where/):
+current releases from https://download.freebsd.org/releases/VM-IMAGES/
+and EOL releases from https://archive.freebsd.org/old-releases/VM-IMAGES/.
 
 
 
@@ -82,7 +112,6 @@ jobs:
       uses: step-security/freebsd-vm@v1
       with:
         envs: 'MYTOKEN MYTOKEN2'
-        usesh: true
         prepare: |
           
 
@@ -107,7 +136,7 @@ jobs:
 ```
 
 
-The latest major version is: `v1`, which is the most recommended to use. (You can also use the latest full version: `v1.5.2`)  
+The latest major version is: `v1`, which is the most recommended to use. (You can also use the latest full version: `v1.5.9`)  
 
 
 If you are migrating from the previous `v0`, please change the `runs-on: ` to `runs-on: ubuntu-latest`
@@ -127,7 +156,9 @@ All the `GITHUB_*` as well as `CI=true` env variables are passed into the VM.
 
 So, you will have the same directory and same default env variables when you `run` the CI script.
 
-The default shell in FreeBSD(before 14.0) is `tcsh`, if you want to use `sh` to execute the `run` script, please set `usesh` to `true`.  https://docs.freebsd.org/en/articles/linux-users/#shells
+The `prepare` and `run` scripts are always executed with `sh` in the VM, whatever the default login shell of the VM is.
+
+The default login shell in FreeBSD(before 14.0) is `tcsh`.  https://docs.freebsd.org/en/articles/linux-users/#shells
 
 
 
@@ -155,7 +186,7 @@ The code is shared from the host to the VM via `rsync` by default, you can choos
 You can also set `sync: no`, so the files will not be synced to the  VM.
 
 
-When using `rsync` or `scp`,  you can define `copyback: false` to not copy files back from the VM in to the host.
+When using a copy based sync method (`rsync`, `scp`, `tar` or `9p`), you can define `copyback: false` to not copy files back from the VM to the host. It has no effect on `sshfs` and `nfs`, which are live mounts and never copy back.
 
 
 ```yaml
@@ -221,6 +252,7 @@ The default memory of the VM is 6144MB, you can use `mem` option to set the memo
 ```
 
 
+
 The VM is using all the cpu cores of the host by default, you can use `cpu` option to change the cpu cores:
 
 ```yaml
@@ -249,6 +281,19 @@ It uses [the FreeBSD 15.1](conf/default.release.conf) by default, you can use `r
 ...
 ```
 
+You can also give only the leading, `.` separated part of a release. The newest release that starts with it is used, so the workflow does not have to be edited for every point release:
+
+```yaml
+...
+    - name: Test
+      id: test
+      uses: step-security/freebsd-vm@v1
+      with:
+        release: "15"
+...
+```
+
+Here `release: "15"` runs the newest `15.x` release of FreeBSD. Every leading part works the same way, this action ships 10, 11, 12, 13, 14, 15. Each part you give has to match in full, so a release that does not exist fails the job instead of quietly falling back to another one.
 
 ## 6. Select architecture
 
@@ -377,9 +422,32 @@ The `prepare` step (installing packages etc.) normally runs on every build. With
 ...
 ```
 
+That is all `cache-after-prepare` needs. The `cache-after-prepare-key-suffix` option below is **optional**; leave it out unless you need it.
+
+The cache key only covers the `prepare` text itself. When `prepare` runs a script from your repository, a change to that script would not rebuild the prepared image. The optional `cache-after-prepare-key-suffix` covers that case: its value is appended to the cache key, so a different value means a different cache. It can be a fixed string you bump by hand (`cache-after-prepare-key-suffix: v2`), or a hash of the files `prepare` depends on:
+
+```yml
+...
+    steps:
+    - uses: actions/checkout@v7
+    - name: Test
+      id: test
+      uses: step-security/freebsd-vm@v1
+      with:
+        cache-after-prepare: true
+        cache-after-prepare-key-suffix: deps-${{ hashFiles('ci/install-deps.sh') }}
+        prepare: |
+          sh ci/install-deps.sh
+        run: |
+          ...
+...
+```
+
+`hashFiles()` is evaluated on the runner, relative to the workspace, so the checkout must come first. It returns an empty string when no file matches, and the key then no longer follows the file, so double-check the path.
+
 Notes:
 
-- The cache key includes a hash of the `prepare` script and the `sync` method, so changing either of them rebuilds the prepared image from the base image.
+- The cache key includes a hash of the `prepare` script and the `sync` method, so changing either of them rebuilds the prepared image from the base image. `cache-after-prepare-key-suffix` is optional and empty by default; when set, its value is appended to the key.
 - The source tree is still synchronized into the VM on every run; only the `prepare` step is skipped.
 - The first run (or any run after `prepare` changes) takes longer: the VM is shut down after `prepare`, the prepared image is cached, and the VM boots again before `run`.
 - The action output `cache-after-prepare-hit` is `true` when a prepared image was restored and `prepare` was skipped.
