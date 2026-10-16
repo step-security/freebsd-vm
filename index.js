@@ -1110,8 +1110,7 @@ async function main() {
     // skips 'prepare' entirely. The key includes a hash of the prepare script
     // and the sync method, plus the optional 'cache-after-prepare-key-suffix'
     // value appended at the end, so changing any of them falls back to the
-    // base image (the suffix is how a user invalidates the cache by hand,
-    // vmactions/freebsd-vm#167).
+    // base image (the suffix is how a user invalidates the cache by hand).
     // Not usable on win32 hosts (the shutdown wait relies on pgrep/pkill).
     let cacheAfterPrepare = cacheAfterPrepareInput;
     if (cacheAfterPrepare && (!prepare || !cacheSupported || disableCache || process.platform === 'win32' || isTelnet)) {
@@ -1133,7 +1132,7 @@ async function main() {
     if (cacheSupported && !disableCache) {
       // Default under <work>/_actions/_vmcache, NOT os.tmpdir(): the
       // ubuntu-26.04 runner image enforces a disk quota on /tmp smaller than
-      // one extracted qcow2 (EDQUOT, vmactions/freebsd-vm#148). _actions sits
+      // one extracted qcow2 (EDQUOT). _actions sits
       // on the roomy work volume, is already excluded from every push-sync
       // path (rsync/scp/tar all skip the _actions name), and unlike a path
       // under __dirname it does not embed the action ref -- the cache tar
@@ -1460,7 +1459,7 @@ async function main() {
     // With sync rsync/scp the work tree is copied into the VM once at action
     // start and copied back once when this main step ends -- files created by
     // a later custom-shell step would otherwise stay in the VM and never
-    // reach the host (vmactions/freebsd-vm#128). Make every custom-shell step
+    // reach the host. Make every custom-shell step
     // self-syncing: push the work tree before the command and pull it back
     // after. rsync transfers are incremental; scp guests have no rsync in the
     // image, so they reuse the main sync's transports (scp -O push, cpio/tar

@@ -287,7 +287,7 @@ You can also give only the leading, `.` separated part of a release. The newest 
 ...
     - name: Test
       id: test
-      uses: vmactions/freebsd-vm@v1
+      uses: step-security/freebsd-vm@v1
       with:
         release: "15"
 ...
@@ -432,7 +432,7 @@ The cache key only covers the `prepare` text itself. When `prepare` runs a scrip
     - uses: actions/checkout@v7
     - name: Test
       id: test
-      uses: vmactions/freebsd-vm@v1
+      uses: step-security/freebsd-vm@v1
       with:
         cache-after-prepare: true
         cache-after-prepare-key-suffix: deps-${{ hashFiles('ci/install-deps.sh') }}
